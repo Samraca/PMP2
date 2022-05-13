@@ -6,16 +6,22 @@ namespace PMP2
 {
     class Pmp
     {
-        //Stack for the sales of the company
-        private double[] salesPmp = new double[11];
-        private double[] prediction = new double[11];
-        private String[] months = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
-            "Octubre", "Noviembre", "Diciembre" };
+        //Array for the sales of the company
+        private double[] salesPmp = new double[12];
+
+        //Array for the values of the prediction
+        private double[] prediction = new double[12];
+
+        //Array with the names of each month
+        private String[] months = {"Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+            "Octubre", "Noviembre", "Diciembre",  "Enero", "Febrero", "Marzo" };
+
         //Variables for the calculation based on the weight of each month
         private double aux1;
         private double aux2;
         private double aux3;
 
+        //Variables for the weight of each month
         private double w1;
         private double w2;
         private double w3;
@@ -28,6 +34,23 @@ namespace PMP2
             this.w3 = LastMonth;
         }
 
+        //Get for the results of the prediction
+        public double[] Prediction { get => prediction; }
+
+        //Get & Set for the sales
+        public double[] SalesPmp { get => salesPmp; set => salesPmp = value; }
+
+        //Get & Set for the weight of the third previous month
+        public double W1 { get => w1; set => w1 = value; }
+
+        //Get & Set for the weight of the Second previous month
+        public double W2 { get => w2; set => w2 = value; }
+
+        //Get & Set for the weight of the last month
+        public double W3 { get => w3; set => w3 = value; }
+
+
+        //Method which shows the predictions for the model
         public void Calculate() {
 
             for (int i = 0; i < salesPmp.Length; i++)
