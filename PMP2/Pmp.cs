@@ -6,11 +6,11 @@ namespace PMP2
 {
     class Pmp
     {
-        //Array for the sales of the company
+        //Array for the previous year sales of the company
         private double[] salesPmp = new double[12];
 
         //Array for the values of the prediction
-        private double[] prediction = new double[12];
+        private double[] prediction = new double[10];
 
         //Array with the names of each month
         private String[] months = {"Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
@@ -53,29 +53,15 @@ namespace PMP2
         //Method which shows the predictions for the model
         public void Calculate() {
 
-            for (int i = 0; i < salesPmp.Length; i++)
-            { 
-                if (i == 0)
-                {
-                    aux1 = salesPmp[i];
-                    
-                }
-                else if (i==1)
-                {
-                    aux2 = salesPmp[i];
-                }
-                else if (i==2)
-                {
-                    aux3 = salesPmp[i];
-                }
-            }
-
-
             for (int i = 0; i < prediction.Length; i++)
             {
+                aux1 = salesPmp[i];
+                aux2 = salesPmp[i + 1];
+                aux3 = salesPmp[i + 2];
                 prediction[i] = ((aux1 * w1) + (aux2 * w2) + (aux3 * w3));
-                Console.WriteLine("Predicción mes de " + months[i] +" es: "+prediction[i]);
+                Console.WriteLine("Predicción " + months[i] +": "+prediction[i]);
             }
+
         }
 
     }
