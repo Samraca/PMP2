@@ -60,6 +60,7 @@ namespace PMP2
                 aux3 = salesPmp[i + 2];
                 prediction[i] = ((aux1 * w1) + (aux2 * w2) + (aux3 * w3));
                 Console.WriteLine("Predicción " + months[i] +": "+prediction[i]);
+                //Revisado
             }
 
         }
